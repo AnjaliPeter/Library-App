@@ -6,8 +6,7 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -30,9 +29,10 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
       <a href="/" class="navbar-brand">LibraryApp</a>
-      <li>
-        <a href="<%=nav[nav.length-2].link%>" id="logins1"><%=nav[nav.length-2].name%></a>
-      </li>
+      <%i=nav.length-2%>
+        <li>
+          <a href="<%=nav[i].link%>" id="logins1"><%=nav[i].name%></a>
+        </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <li class="dropdown">
@@ -90,15 +90,36 @@
           
           
           
-          <!--Library-->
-          <label for="exampleInputName" class="form-label" id="img-label">Login to Explore More !!!</label>
-          <img src="/images/libbg.jpg" alt="LibraryApp" width="100%">
-          <div class="centered">"Ordinary people have big TVs . Extraordinary people have big Libraries."<br>- Robin Sharma</div>
-          <!--/Library-->
+          <!--Form-->
+          <form class="col-lg-8 upform" action="/login" onsubmit="return validate()">
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputUserName" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pwd" onkeyup="validstrength()" required>
+                <span id="pass"></span>
+            </div>
+            <br>
+            <div>
+                <a href="/login" id="accnt">I already have an account ! Login</a>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" id="up-btn">SignUp</button>
+            </div>
+          </form>
           
-          
-          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More<i class="glyphicon glyphicon-chevron-right"></i></a> -->
-        
+          <!--/Form-->
           
         </div>
       </div>
@@ -151,6 +172,7 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 	</body>
 </html>

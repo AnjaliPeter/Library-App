@@ -6,13 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -30,8 +29,17 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
       <a href="/" class="navbar-brand">LibraryApp</a>
+      <%for(i=0;i<nav.length-2;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        </li>
+      <%}%>
+      <!-- <li>
+        <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
+      </li> -->
+      <%i++%>
       <li>
-        <a href="<%=nav[nav.length-2].link%>" id="logins1"><%=nav[nav.length-2].name%></a>
+        <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
       </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
@@ -90,15 +98,51 @@
           
           
           
-          <!--Library-->
-          <label for="exampleInputName" class="form-label" id="img-label">Login to Explore More !!!</label>
-          <img src="/images/libbg.jpg" alt="LibraryApp" width="100%">
-          <div class="centered">"Ordinary people have big TVs . Extraordinary people have big Libraries."<br>- Robin Sharma</div>
-          <!--/Library-->
+          <!--Form-->
+          <form class="col-lg-8 upform" action="/admin/add">
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Author</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Book</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Genre</label>
+                <select class="form-control" aria-label="Default select example">
+                    <!-- <option selected>Novel</option> -->
+                    <option selected value="1">Novel</option>
+                    <option value="2">Fiction</option>
+                    <option value="3">Autobiography</option>
+                    <option value="4">Non-fiction</option>
+                    <option value="5">Short stories</option>
+                    <option value="6">Atlases</option>
+                    <option value="7">Poetry</option>
+                    <option value="8">Article</option>
+                    <option value="9">Dictionary</option>
+                    <option value="10">Biography</option>
+                    <option value="11">Fantasy</option>
+                    <option value="12">Adventure</option>
+                    <option value="13">Ohters</option>
+                </select>
+                <div id="emailHelp" class="form-text">eg:- Novel,Autobiography,Fiction,etc.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputName" class="form-label">Image</label>
+              <input type="file" class="form-control" id="bookimg" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">About</label>
+                <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Write something about this author" required></textarea>
+            </div>
+            <br>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" id="up-btn">Add Author</button>
+            </div>
+          </form>
           
-          
-          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More<i class="glyphicon glyphicon-chevron-right"></i></a> -->
-        
+          <!--/Form-->
           
         </div>
       </div>
@@ -151,6 +195,7 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
 	</body>
 </html>

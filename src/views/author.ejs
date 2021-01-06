@@ -6,13 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -30,8 +29,17 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
       <a href="/" class="navbar-brand">LibraryApp</a>
+      <%for(i=0;i<nav.length-2;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        </li>
+      <%}%>
+      <!-- <li>
+        <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
+      </li> -->
+      <%i++%>
       <li>
-        <a href="<%=nav[nav.length-2].link%>" id="logins1"><%=nav[nav.length-2].name%></a>
+        <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
       </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
@@ -90,14 +98,30 @@
           
           
           
-          <!--Library-->
-          <label for="exampleInputName" class="form-label" id="img-label">Login to Explore More !!!</label>
-          <img src="/images/libbg.jpg" alt="LibraryApp" width="100%">
-          <div class="centered">"Ordinary people have big TVs . Extraordinary people have big Libraries."<br>- Robin Sharma</div>
-          <!--/Library-->
+          <!--Author-->
+          <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-title" href="#"><img alt="" src="/images/<%=author.img%>" style="width:100px;height:100px" class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3><%=author.author%></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default"><%=author.book%></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=author.genre%></small>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+              <h4 class="text-muted" style="text-align: justify;margin-right: 2em;"><%=author.about%></h4>
+            </div>
+          </div>
+          <hr>
+         
+          <!--/Author-->
           
           
-          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More<i class="glyphicon glyphicon-chevron-right"></i></a> -->
+          <a href="/authors" class="btn btn-primary pull-right btnNext">More Authors<i class="glyphicon glyphicon-chevron-right"></i></a>
         
           
         </div>
@@ -151,6 +175,6 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
