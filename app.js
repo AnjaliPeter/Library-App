@@ -2,6 +2,7 @@ console.log("Library App Port No. :- 9999");
 
 const express = require("express");
 const app = new express();
+const port = process.env.PORT || 9999;
 
 // declare nav-array globally
 const nav = [
@@ -100,4 +101,6 @@ app.get("/home",(req,res)=>{
 });
 
 // server port
-app.listen(9999);
+app.listen(port,()=>{
+    console.log("Server is ready at " + port);
+});
